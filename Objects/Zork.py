@@ -1,6 +1,7 @@
 from GameFrame import RoomObject, Globals
 from Objects.Asteroid import Asteroid
 from Objects.Astronaut import Astronaut
+from Objects.Repair_kit import Repair_kit
 import random
 
 class Zork(RoomObject):
@@ -29,6 +30,9 @@ class Zork(RoomObject):
         astronaut_spawn_time = random.randint(30, 200)
         self.set_timer(astronaut_spawn_time, self.spawn_astronaut)
         
+        repair_kit_spawn_time = random.randint(1, 300)
+        self.set_timer(repair_kit_spawn_time, self.spawn_repair_kit)
+
         
     def keep_in_room(self):
         """
@@ -66,3 +70,13 @@ class Zork(RoomObject):
         # reset timer for next astronaut spawn
         astronaut_spawn_time = random.randint(30, 200)
         self.set_timer(astronaut_spawn_time, self.spawn_astronaut)
+
+    def spawn_repair_kit(self):
+        # spawn repair kit and add to room
+        new_repair_kit = Repair_kit(self.room, self.x, self.y)
+        self.room.add_room_object(new_repair_kit)
+        
+        # reset timer for next repair kit spawn
+        repair_kit_spawn_time = random.randint(1, 300)
+        self.set_timer(repair_kit_spawn_time, self.spawn_repair_kit)
+        print("Spawned repair kit")  # Debugging message
