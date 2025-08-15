@@ -10,7 +10,7 @@ class Globals:
     SCORE = 0
 
     # - Set the starting number of lives - #
-    LIVES = 1
+    LIVES = 3
 
     # - Set the Window display name - #
     window_name = 'Space Rescue'

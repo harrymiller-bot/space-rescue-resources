@@ -77,6 +77,6 @@ class Zork(RoomObject):
         self.room.add_room_object(new_repair_kit)
         
         # reset timer for next repair kit spawn
-        repair_kit_spawn_time = random.randint(1, 300)
+        repair_kit_spawn_time = random.randint(1, 500)
         self.set_timer(repair_kit_spawn_time, self.spawn_repair_kit)
         print("Spawned repair kit")  # Debugging message

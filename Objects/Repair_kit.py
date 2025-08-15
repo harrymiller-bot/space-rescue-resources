@@ -1,5 +1,5 @@
-from GameFrame import RoomObject
-from globals import Globals
+from GameFrame import RoomObject, Globals
+from GameFrame import Globals
 
 class Repair_kit(RoomObject):
     
@@ -18,7 +18,8 @@ class Repair_kit(RoomObject):
         if other_type == "Ship":
             self.room.astronaut_saved.play()
             self.room.delete_object(self)
-            globals.SHIP_HEALTH += 1
+            Globals.LIVES += 1
+            self.room.lives.update_image()
             
     def outside_of_room(self):
         if self.x + self.width < 0:
